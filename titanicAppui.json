@@ -1,0 +1,144 @@
+{
+  "title": "TitanicApp",
+  "auth": "YES",
+  "mode": "dash",
+  "Menu": [
+    {
+      "name": "HOME1",
+      "title": "Home"
+    },
+    {
+      "name": "P1",
+      "title": "DATA"
+    },
+    {
+      "name": "P2",
+      "title": "Frequencies"
+    },
+    {
+      "name": "P3",
+      "title": "CrossTabs"
+    },
+    {
+      "name": "P4",
+      "title": "Download"
+    }
+  ],
+  "tabs": [
+    {
+      "name": "HOME1",
+      "title": "Home",
+      "content": [
+        {
+          "type": "header",
+          "width": 12,
+          "content": "Welcome to the titanic app !"
+        },
+        { "type" : "valuebox", "width" : 6, "title" : "Passager", 
+        "codeR" : "891","icon" :"person-lines-fill","style" : null},
+         { "type" : "valuebox", "width" : 6, "title" : "Survivants", 
+        "codeR" : "342","icon" :"people","style" : null},
+        {
+          "type": "image",
+          "width": 12,
+          "id": "image-HOME1",
+          "link": "titanic.jpg"
+        }
+      ]
+    },
+    {
+      "name": "P1",
+      "title": "DATA",
+      "content": [
+        {
+          "type": "header",
+          "width": 12,
+          "content": "Data from Titanic"
+        },
+        {
+          "type": "showdata",
+          "width": 12,
+          "id": "showdata-P1",
+          "data": "titanic.csv",
+          "title": "Titanic"
+        }
+      ]
+    },
+    {
+      "name": "P2",
+      "title": "Frequencies",
+      "content": [
+        {
+          "type": "varfreq",
+          "width": 12,
+          "id": "varfreq-P2",
+          "data": "titanic.csv"
+        },
+        {
+          "type": "varfreqTable",
+          "width": 6,
+          "id": "varfreq-P2",
+          "data": "titanic.csv",
+          "title": "Table"
+        },
+        {
+          "type": "varfreqGraph",
+          "width": 6,
+          "id": "varfreq-P2",
+          "data": "titanic.csv",
+          "title": "Graph"
+        }
+      ]
+    },
+        {
+      "name": "P3",
+      "title": "CrossTabs",
+      "content": [
+        
+        {
+          "type": "header",
+          "width": 6,
+          "content": "Crosstabs"
+        },
+        {
+          "type": "crossvar",
+          "width": 12,
+          "id": "crossvar-P3",
+          "data": "titanic.csv"
+        },
+        {
+          "type": "crossvartable",
+          "width": 6,
+          "id": "crossvar-P3",
+          "data": "titanic.csv",
+          "title": "Table"
+        },
+        {
+          "type": "crossvargraph",
+          "width": 6,
+          "id": "crossvar-P3",
+          "data": "titanic.csv",
+          "title": "Graph"
+        }
+        
+      ]
+    },
+    {
+      "name": "P4",
+      "title": "Download",
+      "content": [
+        {
+          "type": "header",
+          "width": 4,
+          "content": "Download"
+        },
+        {
+          "type": "space",
+          "width": 8
+        },
+        
+        { "type": "downloadFile","id":"P4_JSON","width": 3, "buttonTitle" : "JSON APP","pathFile" :"titanicAppui.json" }
+      ]
+    }
+  ]
+}

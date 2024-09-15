@@ -1,0 +1,81 @@
+{
+  "title": "Example Titanic",
+  "auth": "YES",
+  "mode": "Dash",
+  "Menu": [
+    {
+      "name": "HOME1",
+      "title": "HOME"
+    },
+    {
+      "name": "P1",
+      "title": "Frequencies"
+    },
+    {
+      "name": "P2",
+      "title": "Crosstabs"
+    },
+    {
+      "name": "P3",
+      "title": "Download"
+    }
+  ],
+  "tabs": [
+    {
+      "name": "HOME1",
+      "title": "Home",
+      "content": [
+        {
+          "type": "space",
+          "width": 4
+        },
+        {
+          "type": "header",
+          "width": 12,
+          "content": "Welcome !"
+        }
+      ]
+    },
+    {
+      "name": "P1",
+      "title": "Page One",
+      "content": [
+        {
+          "type": "header",
+          "width": 12,
+          "content": "This is Page One !"
+        }
+      ]
+    },
+    {
+      "name": "P2",
+      "title": "Page Two",
+      "content": [
+        {
+          "type": "header",
+          "width": 12,
+          "content": "Titanic Data"
+        },
+        {
+          "type": "showdata",
+          "width": 12,
+          "id": "showdata-P2",
+          "data": "titanic.csv",
+          "title": "titanic"
+          }
+        ]
+      },
+      {
+      "name": "P3",
+      "title": "Page Three",
+      "content": [
+        {
+          "type": "image",
+          "width": 12,
+          "id": "image-P3",
+          "link": "image1.jpeg"
+        }
+        ]
+      }  
+  ]
+}

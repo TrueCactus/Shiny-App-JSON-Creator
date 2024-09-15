@@ -1,0 +1,30 @@
+{  "title" : "APP CREATOR",
+    "link" : "https://github.com/TrueCactus",
+    "image" : "https://avatars.githubusercontent.com/u/44371566?v=4",
+   "auth" : "YES", 
+   "mode" : "dash",
+   "Menu" : [
+     {"name" :"HOME1","title" : "HOME","status" : "tachometer-alt" },
+     {"name" : "N1","title": "App Creator","status" : "chart-bar"}
+   ],
+  "tabs": [
+    {
+      "name": "HOME1",
+      "title": "HOME",
+      "content": [
+          { "type": "space","width": 3 },
+          { "type": "header","width": 6, "content": "Welcome to the app creator!" }
+      ]
+    },
+
+    
+            {
+      "name": "N1",
+      "title": "N1 : App Creator",
+      "content": [
+        { "type": "header","width": 12, "content": "APP CREATOR" },
+        { "type": "appcreator","width": 12, "id": "appcreator-N12" ,"data" :1,"title" :"APP CREATOR"}
+      ]
+    }
+  ]
+    }
