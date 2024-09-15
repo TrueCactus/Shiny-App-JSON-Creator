@@ -19,6 +19,13 @@
       "name": "P3",
       "title": "CrossTabs"
     },
+    
+    {"name" : "G1" , "title": "Tool",
+       "subitem" :[
+     {"name" : "N9","title": "Pivot"},
+     {"name" : "N10","title": "Data Viz"}
+       ]
+     },
     {
       "name": "P4",
       "title": "Download"
@@ -139,6 +146,24 @@
         
         { "type": "downloadFile","id":"P4_JSON","width": 3, "buttonTitle" : "JSON APP","pathFile" :"titanicAppui.json" }
       ]
+    },
+        {
+      "name": "N9",
+      "title": "Numero 9 : Pivots",
+      "content": [
+        { "type": "header","width": 12, "content": "Pivot" },
+        { "type": "pivotdata","width": 12, "id": "pivotdata-N9" ,"data" :"titanic.csv"}
+      ]
+    },
+    
+               {
+      "name": "N10",
+      "title": "Numero 10 : Daviz",
+      "content": [
+        { "type": "header","width": 12, "content": "Data viz" },
+        { "type": "gwalkr","width": 12, "id": "gwalkr-N10" ,"data" :"titanic.csv"}
+      ]
     }
+    
   ]
 }
