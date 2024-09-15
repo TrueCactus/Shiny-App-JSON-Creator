@@ -274,13 +274,8 @@ pivotDataUI <-function(id,datapivot){
 pivotDataServer <- function(id) {
   moduleServer(id, function(input, output, session) {
     
-        # observe({
-        #   # Exécuter du code JavaScript pour manipuler le DOM
-        #   session$sendCustomMessage(type = "runJs", message = list(action = "applyCustomStyle"))
-        # })
-    
     output$pivotdata <- renderUI ({
-      try(data <- datasets[[as.numeric(input$datapivot)]])
+      data <-read_csv(as.character(input$datapivot))
       res <- renderRpivotTable(rpivotTable(data = data))
       res
     })
@@ -309,7 +304,7 @@ gwalkrUI <-function(id,datapivot){
 gwalkrServer <- function(id) {
   moduleServer(id, function(input, output, session) {
     output$gwalkrdata <- renderUI ({
-      try(data <- datasets[[as.numeric(input$idatagwalkr)]])
+      data <- read_csv(as.character(input$idatagwalkr))
       res <- renderGwalkr( gwalkr(data = data))
       res
     })
