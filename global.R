@@ -1,4 +1,4 @@
-#global.R   
+#global.R     
   
 library(plotly)
 library(xts)

@@ -4,7 +4,6 @@
    "auth" : "YES", 
    "mode" : "dash",
    "Menu" : [
-     {"name" :"HOME1","title" : "HOME","status" : "tachometer-alt" },
      {"name" : "N1","title": "App Creator","status" : "chart-bar"}
    ],
   "tabs": [

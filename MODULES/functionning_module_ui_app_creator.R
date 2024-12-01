@@ -1,4 +1,254 @@
 # # ui_json_creator_ui.R
+XappCreatorUI <- function(id) {
+  # Add module ID to global lists
+  id_list <<- append(id_list, id)
+  routine_id <- list(id = id, type = "appcreator")
+  id_list_routine <<- append(id_list_routine, list(routine_id))
+  
+  ns <- NS(id)
+  
+  page_fluid(
+    theme = bs_theme(
+      version = 5,
+      bootswatch = "flatly",
+      primary = "#2C3E50",
+      "enable-shadows" = TRUE,
+      "card-border-radius" = "1rem",
+      "input-border-radius" = "0.5rem"
+    ),
+    
+    tags$head(
+      tags$style(HTML("
+        .card { 
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+          margin-bottom: 1rem;
+        }
+        .card-header {
+          background: linear-gradient(45deg, #2C3E50, #3498DB);
+          color: white;
+        }
+        .btn-primary {
+          background: linear-gradient(45deg, #2C3E50, #3498DB);
+          border: none;
+          padding: 0.5rem 1.5rem;
+          transition: transform 0.2s;
+        }
+        .btn-primary:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .accordion-button:not(.collapsed) {
+          background: linear-gradient(45deg, #2C3E50, #3498DB);
+          color: white;
+        }
+        #json_output {
+          background-color: #f8f9fa;
+          border-radius: 0.5rem;
+          padding: 1rem;
+          font-family: 'Monaco', 'Menlo', monospace;
+        }
+      "))
+    ),
+    
+    card(
+      class = "mb-4",
+      card_header(
+        div(
+          class = "d-flex align-items-center",
+          h2("Application JSON Creator", class = "card-title mb-0 flex-grow-1"),
+          downloadButton(ns("download_json"), "Download JSON", 
+                         class = "btn btn-light")
+        )
+      ),
+      
+      card_body(
+        layout_columns(
+          col_widths = c(6, 6),
+          gap = "1rem",
+          
+          # Left column - Inputs
+          card(
+            class = "h-100",
+            card_body(
+              accordion(
+                multiple = TRUE,
+                # Basic Settings
+                accordion_panel(
+                  "Basic Settings",
+                  icon = bsicons::bs_icon("gear-fill"),
+                  div(
+                    class = "p-3",
+                    textInput(ns("title"), "Application Title", value = "Example Title",
+                              width = "100%"),
+                    checkboxInput(ns("auth"), "Enable Authentication", value = TRUE),
+                    selectInput(ns("mode"), "Application Mode", 
+                                choices = c("Navigation" = "nav", "Dashboard" = "dash"),
+                                width = "100%")
+                  )
+                ),
+                
+                # Menu Creation
+                accordion_panel(
+                  "Menu Creation",
+                  icon = bsicons::bs_icon("list"),
+                  div(
+                    class = "p-3",
+                    textInput(ns("menu_name"), "Menu Name", value = "HOME1",
+                              width = "100%"),
+                    textInput(ns("menu_title"), "Menu Title", value = "Home",
+                              width = "100%"),
+                    div(
+                      class = "d-grid gap-2",
+                      actionButton(ns("add_menu"), "Add Menu", 
+                                   class = "btn-primary btn-lg mt-3",
+                                   icon = icon("plus"))
+                    )
+                  )
+                ),
+                
+                # Tab Creation
+                accordion_panel(
+                  "Tab Creation",
+                  icon = bsicons::bs_icon("folder-plus"),
+                  div(
+                    class = "p-3",
+                    textInput(ns("tab_name"), "Tab Name", value = "HOME1",
+                              width = "100%"),
+                    textInput(ns("tab_title"), "Tab Title", value = "Home",
+                              width = "100%"),
+                    div(
+                      class = "d-grid gap-2",
+                      actionButton(ns("add_tab"), "Add Tab", 
+                                   class = "btn-primary btn-lg mt-3",
+                                   icon = icon("plus"))
+                    )
+                  )
+                ),
+                
+                # Content Creation
+                accordion_panel(
+                  "Content Creation",
+                  icon = bsicons::bs_icon("building-add"),
+                  div(
+                    class = "p-3",
+                    selectInput(ns("content_type"), "Content Type", 
+                                choices = c(
+                                  "Space" = "space",
+                                  "Header" = "header",
+                                  "Show Data" = "showdata",
+                                  "Variable Frequency" = "varfreq",
+                                  "Frequency Table" = "varfreqTable",
+                                  "Frequency Graph" = "varfreqGraph",
+                                  "Cross Variable" = "crossvar",
+                                  "Cross Variable Table" = "crossvartable",
+                                  "Cross Variable Graph" = "crossvargraph",
+                                  "Video" = "video",
+                                  "Image" = "image"
+                                ),
+                                width = "100%"),
+                    uiOutput(ns("dynamic_content_options")),
+                    div(
+                      class = "d-grid gap-2",
+                      actionButton(ns("add_content"), "Add Content", 
+                                   class = "btn-primary btn-lg mt-3",
+                                   icon = icon("plus"))
+                    )
+                  )
+                )
+              )
+            )
+          ),
+          
+          # Right column - JSON Output
+          card(
+            class = "h-100",
+            card_body(
+              h4("Generated JSON", class = "mb-4"),
+              div(
+                id = "json_output",
+                verbatimTextOutput(ns("ui_json_output"), 
+                                   placeholder = TRUE)
+              )
+            )
+          )
+        )
+      )
+    )
+  )
+}
+
+XappCreatorUI <- function(id) {
+  id_list <<- append(id_list, id)
+  routine_id <- list(id = id, type = "appcreator")
+  id_list_routine <<- append(id_list_routine, list(routine_id))
+  
+  ns <- NS(id)
+  
+  
+  
+  tagList(
+    fluidRow(
+      column(
+        width = 6,
+        card(
+          class = "mb-4",
+          card_body(
+            # First parameters
+            h3("First Parameters:"),
+            textInput(ns("title"), "Application Title", value = "Example Title"),
+            checkboxInput(ns("auth"), "Authentication", value = TRUE),
+            selectInput(ns("mode"), "Mode", choices = c("nav", "dash")),
+            hr(),
+            
+            # Menu creation
+            h3("Create Menu:"),
+            textInput(ns("menu_name"), "Menu Name", value = "HOME1"),
+            textInput(ns("menu_title"), "Menu Title", value = "Home"),
+            actionButton(ns("add_menu"), "Add Menu", class = "btn-primary"),
+            hr(),
+            
+            # Tabs creation
+            h3("Create Tabs:"),
+            textInput(ns("tab_name"), "Tab Name", value = "HOME1"),
+            textInput(ns("tab_title"), "Tab Title", value = "Home"),
+            actionButton(ns("add_tab"), "Add Tab", class = "btn-primary"),
+            
+            # Tab content
+            p("Tab Contents:", class = "mt-3"),
+            selectInput(ns("content_type"), "Content Type", 
+                        choices = c("space", "header", "showdata", "varfreq", "varfreqTable", 
+                                    "varfreqGraph", "crossvar", "crossvartable", 
+                                    "crossvargraph", "video", "image")),
+            uiOutput(ns("dynamic_content_options")),
+            actionButton(ns("add_content"), "Add Content", class = "btn-primary")
+          )
+        )
+      ),
+      column(
+        width = 6,
+        card(
+          class = "mb-4",
+          card_body(
+            # Area to display generated JSON
+            h3("Generated JSON"),
+            verbatimTextOutput(ns("ui_json_output")),
+            card_header(
+              div(
+                class = "d-flex align-items-center",
+                downloadButton(ns("download_json"), "Download JSON", 
+                               class = "btn btn-light"),
+                hr(),
+                downloadButton(ns("download_app"), "Download APP", 
+                               class = "btn btn-success")
+              )
+            )
+          )
+        )
+      )
+    )
+  )
+}
+
 appCreatorUI <- function(id) {
   id_list <<- append(id_list, id)
   routine_id <- list(id = id, type = "appcreator")
@@ -70,6 +320,7 @@ appCreatorUI <- function(id) {
     )
   )
 }
+
 ui_json_creator_server <- function(id) {
   moduleServer(id, function(input, output, session) {
     ns <- session$ns
@@ -277,3 +528,4 @@ ui_json_creator_server <- function(id) {
     )
   })
 }
+
