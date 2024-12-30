@@ -37,7 +37,9 @@ Once the app is fully configured, a JSON file is generated that contains all the
 
 ![screenshot_1](SCREEN/appjsoncreator_screen1.png)
 
-![screenshot_1](SCREEN/appjsoncreator_screen2.png)
+![screenshot_2](SCREEN/appjsoncreator_screen2.png)
+
+![screenshot_3](SCREEN/appjsoncreator_screen3.png)
 
 
 ## Benefits
