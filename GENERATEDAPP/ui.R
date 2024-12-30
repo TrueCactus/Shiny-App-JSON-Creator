@@ -13,9 +13,7 @@ secure_app(ui,enable_admin = FALSE,
            tags_top =
              tags$div(
                tags$h4("WELCOME !"),
-               tags$h5("The differents users are - appcreator /appcreatorpwd
-   - example1nav or example1dash / example1pwd -
-   - exampletitanic/exampletitanicpwd"),
+               tags$h5("appcreator /appcreatorpwd"),
                tags$img(
                  src = "https://avatars.githubusercontent.com/u/44371566?v=4", width = 150
                )
