@@ -30,10 +30,25 @@ This Shiny App allows users to generate a JSON file that describes an entire Shi
 -   Select from a variety of content types (data tables, frequency graphs, images, videos)
 -   Add custom modules for variable crossings (e.g., CrossVarUITable, CrossVarUIGraph) to include more advanced functionality
 
-### Generate JSON:
+### Download:
 
+### Download only Generated JSON
 Once the app is fully configured, a JSON file is generated that contains all the information needed to describe the Shiny app structure. This JSON can be downloaded and used to create the actual Shiny app in R.
 
+### Download Full App Structure
+
+In addition to downloading the JSON file, users can also download a complete folder containing all the necessary files to directly run the generated Shiny app. This folder includes:
+
+- The **app_config.json** that describes the user's app
+- The ui.R file
+- The server.R
+- The global.R
+- MODULES folder
+- credentials files (default user is : login : appcreator /password : appcreatorpwd)
+
+Additional module files (if any) and resources.
+
+A README file with instructions to set up and run the Shiny app.
 
 ![screenshot_1](SCREEN/appjsoncreator_screen1.png)
 
