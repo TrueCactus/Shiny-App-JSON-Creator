@@ -17,7 +17,6 @@ This Shiny App allows users to generate a JSON file that describes an entire Shi
 ### Fill in App Parameters:
 
 -   Set the application title
--   Choose whether authentication is required
 -   Select the mode (navigation or dashboard)
 
 ### Create Menus and Tabs:
@@ -34,6 +33,12 @@ This Shiny App allows users to generate a JSON file that describes an entire Shi
 ### Generate JSON:
 
 Once the app is fully configured, a JSON file is generated that contains all the information needed to describe the Shiny app structure. This JSON can be downloaded and used to create the actual Shiny app in R.
+
+
+![screenshot_1](SCREEN/appjsoncreator_screen1.png)
+
+![screenshot_1](SCREEN/appjsoncreator_screen2.png)
+
 
 ## Benefits
 
